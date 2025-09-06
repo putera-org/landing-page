@@ -5,6 +5,7 @@ import { Solutions } from "@/components/Solutions";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { CaseStudies } from "@/components/CaseStudies";
 import { CTASection } from "@/components/CTASection";
+import Contact from "@/pages/Contact";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -21,6 +22,9 @@ const Index = () => {
       <WhyChooseUs />
       <CaseStudies />
       <CTASection />
+        <div id="contact">
+            <Contact />
+        </div>
       <Footer />
     </div>
   );

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -211,6 +210,24 @@ export default function Contact() {
                       />
                     </div>
 
+              {/* Contact Information */}
+              <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-start space-x-2">
+                    <div className="flex-shrink-0">
+                      <div className="w-5 h-5 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <info.icon className="h-5 w-5 text-primary" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-semibold text-foreground mb-1">{info.title}</h3>
+                      <p className="text-xs text-muted-foreground">{info.content}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+
                     <Button 
                       type="submit" 
                       className="w-full" 
@@ -230,22 +247,6 @@ export default function Contact() {
                 </CardContent>
               </Card>
 
-              {/* Contact Information */}
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <info.icon className="h-5 w-5 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                      <p className="text-muted-foreground text-sm">{info.content}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* AI Chat */}
@@ -256,7 +257,6 @@ export default function Contact() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

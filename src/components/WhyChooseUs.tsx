@@ -5,40 +5,75 @@ export const WhyChooseUs = () => {
     {
       icon: Lightbulb,
       title: "Đột phá công nghệ",
-      description: "Luôn tiên phong áp dụng công nghệ mới nhất, định hướng tương lai cho doanh nghiệp."
+      description:
+        "Luôn tiên phong áp dụng công nghệ mới nhất, định hướng tương lai cho doanh nghiệp.",
     },
     {
       icon: Shield,
       title: "Đối tác tin cậy",
-      description: "Cam kết bảo mật thông tin, minh bạch trong quy trình và xây dựng uy tín lâu dài."
+      description:
+        "Cam kết bảo mật thông tin, minh bạch trong quy trình và xây dựng uy tín lâu dài.",
     },
     {
       icon: Target,
       title: "Hiệu quả thực tế",
-      description: "Mang lại tác động rõ ràng, kết quả có thể đo lường được cho doanh nghiệp."
-    }
+      description:
+        "Mang lại tác động rõ ràng, kết quả có thể đo lường được cho doanh nghiệp.",
+    },
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section
+      className="py-24 px-6"
+      itemScope
+      itemType="https://schema.org/ItemList"
+    >
+      {/* Khai báo số lượng và thứ tự danh sách */}
+      <meta itemProp="itemListOrder" content="http://schema.org/ItemListOrderAscending" />
+      <meta itemProp="numberOfItems" content={pillars.length.toString()} />
+
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-display mb-6 text-foreground">
+          <h2
+            className="text-4xl md:text-5xl font-bold font-display mb-6 text-foreground"
+            itemProp="name"
+          >
             Vì sao chọn <span className="text-primary">RotexAI?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            itemProp="description"
+          >
             Ba trụ cột nền tảng tạo nên sự khác biệt của chúng tôi
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12">
           {pillars.map((pillar, index) => (
-            <div key={index} className="text-center group">
+            <div
+              key={index}
+              className="text-center group"
+              itemProp="itemListElement"
+              itemScope
+              itemType="https://schema.org/ListItem"
+            >
+              <meta itemProp="position" content={(index + 1).toString()} />
+
               <div className="mx-auto mb-8 p-6 rounded-full primary-gradient w-fit group-hover:scale-110 transition-transform duration-300">
                 <pillar.icon className="h-12 w-12 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4 text-foreground">{pillar.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">
+
+              <h3
+                className="text-2xl font-semibold mb-4 text-foreground"
+                itemProp="name"
+              >
+                {pillar.title}
+              </h3>
+
+              <p
+                className="text-muted-foreground leading-relaxed text-lg"
+                itemProp="description"
+              >
                 {pillar.description}
               </p>
             </div>
@@ -48,3 +83,4 @@ export const WhyChooseUs = () => {
     </section>
   );
 };
+
